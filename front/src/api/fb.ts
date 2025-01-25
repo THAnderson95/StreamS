@@ -7,6 +7,9 @@ import { addRepliesToComments } from "@/utils/Transformers";
 export async function FetchVideoCommentsData(
   videoId: string
 ): Promise<Array<CommentDataWithReplies>> {
+  if (!videoId) {
+    throw new Error(`videoID must not be empty for API call`);
+  }
   try {
     const response: AxiosResponse = await axios.get(
       FB_API_ENDPOINT_COMMENTS.replace("{0}", videoId),
@@ -26,9 +29,9 @@ export async function FetchVideoCommentsData(
     if (response.status !== 200) {
       throw new Error(`API Error: ${response.status}`);
     }
-    
+
     const { data } = response as { data: APIDataCommentResponse }; // typecast
-    return addRepliesToComments(data)
+    return addRepliesToComments(data);
   } catch (error) {
     console.error("Error:", error);
     throw error;

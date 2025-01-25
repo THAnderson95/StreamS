@@ -28,11 +28,11 @@ export default function Comment({ data }: CommentProps) {
       );
     }
 
-    return <img src={data.attachment?.media.image.src} className="p-2 " />;
+    return <img src={data.attachment?.media.image.src} className="p-2" />;
   };
 
   return (
-    <div className="comment-container border flex flex-row p-2 m-2 bg-gray-400">
+    <div className="comment-container border flex flex-row p-2 m-2 bg-gray-400 rounded-2xl">
       <div className="comment-picture">
         <img
           src={data.from.picture.data.url}
@@ -41,7 +41,7 @@ export default function Comment({ data }: CommentProps) {
       </div>
       <div className="comment-info flex-1">
         <div className="comment-name text-2xl">{data.from.name}</div>
-        <div className="comment-message">{data.message}</div>
+        <div className="comment-message italic">{data.message}</div>
 
         {data.attachment && (
           <div className="comment-attachment">{renderAttachment()}</div>
@@ -55,7 +55,7 @@ export default function Comment({ data }: CommentProps) {
           </button>
         )}
         {collapseReplies &&
-          data.replies?.map((item) => <Comment key={item.id} data={item} />)}
+          data.replies?.map((reply) => <Comment key={reply.id} data={reply} />)}
       </div>
     </div>
   );

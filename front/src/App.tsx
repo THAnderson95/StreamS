@@ -6,6 +6,7 @@ import { CommentDataWithReplies } from "./types";
 import CommentsContainer from "@/components/CommentsContainer/CommentsContainer";
 
 import "./App.css"
+import "./App.css";
 
 const VIDEO_ID = "241540867013420";
 

@@ -7,6 +7,7 @@ import {
 export function addRepliesToComments(
   data: APIDataCommentResponse
 ): Array<CommentDataWithReplies> {
+    
   // filter the comments that are child comments and convert them to `CommentDataWithReplies`
   const filteredComments: Array<CommentDataWithReplies> = data.data
     .filter((comment) => !comment.parent)
