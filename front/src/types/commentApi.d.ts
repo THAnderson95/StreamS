@@ -5,10 +5,28 @@ export interface APIDataCommentResponse {
 
 interface CommentData {
   message: string;
+  from: FromData;
   reactions?: Reactions;
   attachment?: Attachment;
   id: string;
   like_count: number;
+}
+
+interface FromData {
+  id: string;
+  name: string;
+  picture: Picture 
+}
+
+interface Picture {
+  data: PictureData;
+}
+
+interface PictureData {
+  height: number;
+  width: number;
+  is_silhouette: boolean
+  url: string;
 }
 
 interface Attachment {
