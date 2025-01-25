@@ -15,6 +15,7 @@ export async function FetchVideoComments(
           live_filter: "no_filter",
           fields:
             "message,attachment,reactions,like_count,from{id,name,picture}",
+            "message,attachment,reactions,like_count,from{id,name,picture},parent",
         },
         headers: {
           Authorization: `Bearer ${import.meta.env.VITE_FB_API_ACCESS_TOKEN}`,

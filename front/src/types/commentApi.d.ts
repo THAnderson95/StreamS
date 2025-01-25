@@ -1,3 +1,5 @@
+import { COMMENT_TYPES } from "@/constants";
+
 export interface APIDataCommentResponse {
   data: Array<CommentData>;
   paging: Paging;
@@ -26,6 +28,7 @@ interface PictureData {
   height: number;
   width: number;
   is_silhouette: boolean
+  is_silhouette: boolean;
   url: string;
 }
 
@@ -40,8 +43,10 @@ interface Attachment {
       id: string;
       url: string;
     };
+    source?: string;
   };
   type: string;
+  type: COMMENT_TYPES;
   url: string;
 }
 

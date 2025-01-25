@@ -4,6 +4,7 @@
 // import { useEffect, useState } from "react";
 // import axios, { AxiosResponse } from "axios";
 
+import { COMMENT_TYPES } from "@/constants";
 import { CommentData } from "@/types";
 // import { FetchProfilePictureUrl } from "@/api";
 
@@ -12,6 +13,21 @@ interface CommentProps {
 }
 
 export default function Comment({ data }: CommentProps) {
+  const renderAttachment = () => {
+    if (data.attachment?.type === COMMENT_TYPES.ANIMATED_IMAGE_VIDEO) {
+      return (
+        <video
+          src={data.attachment?.media.source}
+          className="p-2"
+          autoPlay
+          muted
+          loop
+        />
+      );
+    }
+
+    return <img src={data.attachment?.media.image.src} className="p-2 " />;
+  };
 
   // const renderAttachment = () => 
   return (
@@ -23,6 +39,7 @@ export default function Comment({ data }: CommentProps) {
         ></img>
       </div>
       <div className="comment-info">
+      <div className="comment-info flex-1">
         <div className="comment-name text-2xl">{data.from.name}</div>
         <div className="comment-message">{data.message}</div>
         <span>likes: {data.like_count}</span>
