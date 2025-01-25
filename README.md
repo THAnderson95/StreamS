@@ -16,9 +16,3 @@
 ### Potential improvements for the future
 + Could potentially move to `Redux`, if more state management is required instead of a single API call to return info
 + Could add option to auto-expand comments based on the first parent Comment rendered? (I.E. if a `commentsExpanded` prop doesn't exist, set it for child props).
-
-
-
-
-
-

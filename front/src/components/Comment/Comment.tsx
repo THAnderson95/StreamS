@@ -1,12 +1,6 @@
-// import { BookCategory } from "@/types/books";
-// import BookList from "@/components/BookList/BookList";
-// import { booksAPI } from "@/app/api";
-// import { useEffect, useState } from "react";
-// import axios, { AxiosResponse } from "axios";
-
 import { useState } from "react";
 import { COMMENT_TYPES } from "@/constants";
-import { CommentDataWithReplies } from "@/types";
+import { Attachment, CommentDataWithReplies } from "@/types";
 
 interface CommentProps {
   data: CommentDataWithReplies;
@@ -15,11 +9,15 @@ interface CommentProps {
 export default function Comment({ data }: CommentProps) {
   const [collapseReplies, setCollapseReplies] = useState<boolean>(false);
 
-  const renderAttachment = () => {
-    if (data.attachment?.type === COMMENT_TYPES.ANIMATED_IMAGE_VIDEO) {
+  const renderAttachment = (attachment: Attachment) => {
+    if (!attachment) {
+      return null;
+    }
+
+    if (attachment.type === COMMENT_TYPES.ANIMATED_IMAGE_VIDEO) {
       return (
         <video
-          src={data.attachment?.media.source}
+          src={attachment.media.source}
           className="p-2"
           autoPlay
           muted
@@ -28,7 +26,7 @@ export default function Comment({ data }: CommentProps) {
       );
     }
 
-    return <img src={data.attachment?.media.image.src} className="p-2" />;
+    return <img src={attachment.media.image.src} className="p-2" />;
   };
 
   return (
@@ -44,7 +42,7 @@ export default function Comment({ data }: CommentProps) {
         <div className="comment-message italic">{data.message}</div>
 
         {data.attachment && (
-          <div className="comment-attachment">{renderAttachment()}</div>
+          <div className="comment-attachment">{renderAttachment(data.attachment)}</div>
         )}
         {data.replies && data.replies.length > 0 && (
           <button
