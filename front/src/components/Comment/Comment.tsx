@@ -18,7 +18,7 @@ export default function Comment({ data }: CommentProps) {
       return (
         <video
           src={attachment.media.source}
-          className="p-2"
+          className="attachment-animated-image p-2 rounded-xl"
           autoPlay
           muted
           loop
@@ -26,11 +26,23 @@ export default function Comment({ data }: CommentProps) {
       );
     }
 
-    return <img src={attachment.media.image.src} className="p-2" />;
+    if (attachment.type === COMMENT_TYPES.STICKER) {
+      return <img src={attachment.media.image.src} className="attachment-sticker p-2 w-1/4" />;
+    }
+
+    if (attachment.type === COMMENT_TYPES.PHOTO) {
+      return <img src={attachment.media.image.src} className="attachment-photo p-2" />;
+    }
+
+    return (
+      <div className="invalid-attachment-type text-red-700 bg-white-200">
+        Invalid Attachment Type
+      </div>
+    );
   };
 
   return (
-    <div className="comment-container border flex flex-row p-2 m-2 bg-gray-400 rounded-2xl">
+    <div className="comment-container border border-2 flex flex-row p-2 m-2 bg-gray-300 rounded-2xl">
       <div className="comment-picture">
         <img
           src={data.from.picture.data.url}
@@ -42,7 +54,9 @@ export default function Comment({ data }: CommentProps) {
         <div className="comment-message italic">{data.message}</div>
 
         {data.attachment && (
-          <div className="comment-attachment">{renderAttachment(data.attachment)}</div>
+          <div className="comment-attachment">
+            {renderAttachment(data.attachment)}
+          </div>
         )}
         {data.replies && data.replies.length > 0 && (
           <button
