@@ -1,1 +1,1 @@
-export * from "./fb"
+export {FetchVideoCommentsData} from "./fb"

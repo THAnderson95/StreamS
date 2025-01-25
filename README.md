@@ -5,6 +5,7 @@
 - [x] Display posts with pictures / stickers / gifs
 - [ ] Display post reactions
 - [ ] Make it look nice
+- [ ] Add Mobile Layout
 - [ ] Add JEST Unit test & Snapshot tests
 
 ### Thoughts while developing
