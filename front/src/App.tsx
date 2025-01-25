@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-// import { APIDataCommentResponse } from "@/types";
+import { useState } from "react";
 
 import { FetchVideoCommentsData } from "@/api";
 import { CommentDataWithReplies } from "./types";
@@ -89,8 +88,11 @@ function App() {
   return (
     <div className="app">
       {renderHeader()}
-      <div className="content-container mx-auto w-1/2 bg-gray-200">
-       <CommentsContainer data={comments} />
+      <div className="content-container mx-auto w-1/2">
+        {renderSearchInfo()}
+        {loading && renderLoading()}
+        {apiError && !loading && renderApiError()}
+        {comments.length > 0 && <CommentsContainer data={comments} />}
       </div>
     </div>
   );
