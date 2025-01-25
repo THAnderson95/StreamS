@@ -1,12 +1,12 @@
 import axios, { AxiosResponse } from "axios";
 
-import { APIDataCommentResponse, CommentData } from "@/types";
+import { APIDataCommentResponse, CommentDataWithReplies } from "@/types";
 import { FB_API_ENDPOINT_COMMENTS } from "@/constants";
 import { addRepliesToComments } from "@/utils/Transformers";
 
-export async function FetchVideoComments(
+export async function FetchVideoCommentsData(
   videoId: string
-): Promise<Array<CommentData>> {
+): Promise<Array<CommentDataWithReplies>> {
   try {
     const response: AxiosResponse = await axios.get(
       FB_API_ENDPOINT_COMMENTS.replace("{0}", videoId),
@@ -15,7 +15,7 @@ export async function FetchVideoComments(
           filter: "stream",
           live_filter: "no_filter",
           fields:
-            "message,attachment,reactions,like_count,from{id,name,picture},parent",
+            "message,attachment,reactions,like_count,from{id,name,picture},parent,created_time",
         },
         headers: {
           Authorization: `Bearer ${import.meta.env.VITE_FB_API_ACCESS_TOKEN}`,

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 // import { APIDataCommentResponse } from "@/types";
 
 import { FetchVideoCommentsData } from "@/api";
-import { CommentData } from "./types";
+import { CommentDataWithReplies } from "./types";
 import CommentsContainer from "@/components/CommentsContainer/CommentsContainer";
 
 import "./App.css"
@@ -11,7 +11,7 @@ const VIDEO_ID = "241540867013420";
 
 
 function App() {
-  const [comments, setComments] = useState<Array<CommentData>>([]);
+  const [comments, setComments] = useState<Array<CommentDataWithReplies>>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   const renderHeader = () => (
@@ -21,10 +21,8 @@ function App() {
   );
 
   useEffect(() => {
-    FetchVideoComments(VIDEO_ID)
     FetchVideoCommentsData(VIDEO_ID)
       .then((data) => {
-        console.log(data);
         setComments(data);
       })
       .catch((error) => {
