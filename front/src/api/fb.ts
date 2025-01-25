@@ -1,10 +1,12 @@
 import axios, { AxiosResponse } from "axios";
 
-import { APIDataCommentResponse, CommentDataWithReplies } from "@/types";
-import { FB_API_ENDPOINT_COMMENTS } from "@/constants";
+import { APIDataCommentResponse } from "@/types/commentApi";
+import { CommentDataWithReplies } from "@/types/extendedTypes";
+import { FB_API_ENDPOINT_COMMENTS } from "@/constants/";
+
 import { addRepliesToComments } from "@/utils/Transformers";
 
-const getCommentsEndpoint = (videoId: string): string => 
+const getCommentsEndpoint = (videoId: string): string =>
   FB_API_ENDPOINT_COMMENTS.replace("{0}", videoId);
 
 const getRequestHeaders = () => ({
@@ -14,7 +16,8 @@ const getRequestHeaders = () => ({
 const getRequestParams = () => ({
   filter: "stream",
   live_filter: "no_filter",
-  fields: "message,attachment,reactions,like_count,from{id,name,picture},parent,created_time",
+  fields:
+    "message,attachment,reactions,like_count,from{id,name,picture},parent,created_time",
 });
 
 const fetchComments = async (videoId: string): Promise<AxiosResponse> => {
@@ -25,7 +28,7 @@ const fetchComments = async (videoId: string): Promise<AxiosResponse> => {
 };
 
 export async function FetchVideoCommentsData(
-  videoId: string
+  videoId: string,
 ): Promise<Array<CommentDataWithReplies>> {
   if (!videoId) {
     throw new Error(`videoID must not be empty for API call`);

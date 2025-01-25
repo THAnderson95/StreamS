@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { FetchVideoCommentsData } from "@/api";
-import { CommentDataWithReplies } from "./types";
+import { CommentDataWithReplies } from "@/types/extendedTypes";
 import CommentsContainer from "@/components/CommentsContainer/CommentsContainer";
 
 import "./App.css";
@@ -33,7 +33,7 @@ function App() {
   );
 
   const handleFilterInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setSearchId(event.target.value);
   };

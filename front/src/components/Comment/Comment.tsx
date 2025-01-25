@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { COMMENT_TYPES } from "@/constants";
-import { Attachment, CommentDataWithReplies } from "@/types";
+import { Attachment } from "@/types/commentApi";
+import { CommentDataWithReplies } from "@/types/extendedTypes";
 
 interface CommentProps {
   data: CommentDataWithReplies;
@@ -27,11 +28,21 @@ export default function Comment({ data }: CommentProps) {
     }
 
     if (attachment.type === COMMENT_TYPES.STICKER) {
-      return <img src={attachment.media.image.src} className="attachment-sticker p-2 w-1/4" />;
+      return (
+        <img
+          src={attachment.media.image.src}
+          className="attachment-sticker p-2 w-1/4"
+        />
+      );
     }
 
     if (attachment.type === COMMENT_TYPES.PHOTO) {
-      return <img src={attachment.media.image.src} className="attachment-photo p-2" />;
+      return (
+        <img
+          src={attachment.media.image.src}
+          className="attachment-photo p-2"
+        />
+      );
     }
 
     return (

@@ -1,5 +1,4 @@
-import { CommentData } from "@/types";
-
+import { CommentData } from "@/types/commentApi";
 import Comment from "@/components/Comment/Comment";
 
 interface CommentContainerProps {

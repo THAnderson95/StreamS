@@ -1,13 +1,10 @@
-import {
-  APIDataCommentResponse,
-  CommentData,
-  CommentDataWithReplies,
-} from "@/types";
+import { APIDataCommentResponse, CommentData } from "@/types/commentApi";
+
+import { CommentDataWithReplies } from "@/types/extendedTypes";
 
 export function addRepliesToComments(
-  data: APIDataCommentResponse
+  data: APIDataCommentResponse,
 ): Array<CommentDataWithReplies> {
-    
   // filter the comments that are child comments and convert them to `CommentDataWithReplies`
   const filteredComments: Array<CommentDataWithReplies> = data.data
     .filter((comment) => !comment.parent)
@@ -15,14 +12,14 @@ export function addRepliesToComments(
 
   // filter ONLY child replies
   const childReplies: Array<CommentData> = data.data.filter(
-    (comment) => comment.parent
+    (comment) => comment.parent,
   );
 
   // merge them
   const addRepliesToComments: Array<CommentDataWithReplies> =
     filteredComments.map((parentComment) => {
       parentComment.replies = childReplies.filter(
-        (replyComment) => replyComment.parent?.id === parentComment.id
+        (replyComment) => replyComment.parent?.id === parentComment.id,
       );
       return parentComment;
     });
