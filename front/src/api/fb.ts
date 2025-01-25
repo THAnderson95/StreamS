@@ -2,6 +2,7 @@ import axios, { AxiosResponse } from "axios";
 
 import { APIDataCommentResponse, CommentData } from "@/types";
 import { FB_API_ENDPOINT_COMMENTS } from "@/constants";
+import { addRepliesToComments } from "@/utils/Transformers";
 
 export async function FetchVideoComments(
   videoId: string
@@ -14,7 +15,6 @@ export async function FetchVideoComments(
           filter: "stream",
           live_filter: "no_filter",
           fields:
-            "message,attachment,reactions,like_count,from{id,name,picture}",
             "message,attachment,reactions,like_count,from{id,name,picture},parent",
         },
         headers: {
@@ -26,9 +26,9 @@ export async function FetchVideoComments(
     if (response.status !== 200) {
       throw new Error(`API Error: ${response.status}`);
     }
-
+    
     const { data } = response as { data: APIDataCommentResponse }; // typecast
-    return data.data;
+    return addRepliesToComments(data)
   } catch (error) {
     console.error("Error:", error);
     throw error;

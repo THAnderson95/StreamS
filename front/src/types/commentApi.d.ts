@@ -12,12 +12,17 @@ interface CommentData {
   attachment?: Attachment;
   id: string;
   like_count: number;
+  parent: Parent;
+}
+
+interface Parent {
+  id: string;
 }
 
 interface FromData {
   id: string;
   name: string;
-  picture: Picture 
+  picture: Picture;
 }
 
 interface Picture {
@@ -27,7 +32,6 @@ interface Picture {
 interface PictureData {
   height: number;
   width: number;
-  is_silhouette: boolean
   is_silhouette: boolean;
   url: string;
 }
@@ -45,7 +49,6 @@ interface Attachment {
     };
     source?: string;
   };
-  type: string;
   type: COMMENT_TYPES;
   url: string;
 }
