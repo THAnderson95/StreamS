@@ -61,3 +61,11 @@ npm run dev
 ```
 
 The application will be available at the URL that's defined in the terminal (I.E. `http://localhost:5173`)
+
+## Testing the solution
+
+Some `JEST` unit tests and snapshot tests are setup for this solution. To run them, run the following command:
+
+```sh
+npm run test
+```
