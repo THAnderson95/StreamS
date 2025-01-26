@@ -2,7 +2,7 @@ import { act } from "react";
 
 import { render } from "@testing-library/react";
 
-import CommentsContainer from "../CommentsContainer";
+import CommentsContainer from "./CommentsContainer";
 import { generateCommentData } from "@/utils/testUtils";
 import { CommentDataWithReplies } from "@/types/extendedTypes";
 
