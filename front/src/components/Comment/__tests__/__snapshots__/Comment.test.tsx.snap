@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly and matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="comment-container border border-2 flex flex-row p-2 m-2 bg-gray-300 rounded-2xl"
+  >
+    <div
+      class="comment-picture"
+    >
+      <img
+        class="comment-profile-image mr-4 rounded-full max-w-50 max-h-50"
+        src="https://example.com/user1.jpg"
+      />
+    </div>
+    <div
+      class="comment-info flex-1"
+    >
+      <div
+        class="content-container bg-gray-200 rounded-lg m-2 p-2"
+      >
+        <div
+          class="comment-name font-bold text-lg"
+        >
+          User One
+        </div>
+        <div
+          class="comment-message"
+        >
+          This is a comment without parents and without replies
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

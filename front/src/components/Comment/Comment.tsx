@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ATTACHMENT_TYPES, REACTION_TYPE_SYMBOLS } from "@/constants";
+import { ATTACHMENT_TYPES } from "@/constants";
 import { Attachment, Reaction } from "@/types/commentApi";
 import { CommentDataWithReplies } from "@/types/extendedTypes";
 import { getReactionSymbol } from "@/utils/utils";
@@ -57,7 +57,7 @@ export default function Comment({ data }: CommentProps) {
     return (
       <div className="comment-reactions flex flex-row">
         {reactions.map((reaction) => (
-          <div className="reaction text-white  p-1 bg-gray-500 m-1 rounded-full w-auto min-w-1 h-8 flex items-center justify-center">
+          <div key={reaction.name} className="reaction text-white  p-1 bg-gray-500 m-1 rounded-full w-auto min-w-1 h-8 flex items-center justify-center">
             {getReactionSymbol(reaction.type)}
           </div>
         ))}
@@ -70,7 +70,7 @@ export default function Comment({ data }: CommentProps) {
       <div className="comment-picture">
         <img
           src={data.from.picture.data.url}
-          className="comment-profile-image mr-4 rounded-full"
+          className="comment-profile-image mr-4 rounded-full max-w-50 max-h-50"
         ></img>
       </div>
       <div className="comment-info flex-1">

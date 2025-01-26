@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly and matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="comments-container flex flex-col"
+  >
+    <div
+      class="comment-container border border-2 flex flex-row p-2 m-2 bg-gray-300 rounded-2xl"
+    >
+      <div
+        class="comment-picture"
+      >
+        <img
+          class="comment-profile-image mr-4 rounded-full max-w-50 max-h-50"
+          src="https://example.com/user1.jpg"
+        />
+      </div>
+      <div
+        class="comment-info flex-1"
+      >
+        <div
+          class="content-container bg-gray-200 rounded-lg m-2 p-2"
+        >
+          <div
+            class="comment-name font-bold text-lg"
+          >
+            User One
+          </div>
+          <div
+            class="comment-message"
+          >
+            This is a comment without parents and without replies
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="comment-container border border-2 flex flex-row p-2 m-2 bg-gray-300 rounded-2xl"
+    >
+      <div
+        class="comment-picture"
+      >
+        <img
+          class="comment-profile-image mr-4 rounded-full max-w-50 max-h-50"
+          src="https://example.com/user2.jpg"
+        />
+      </div>
+      <div
+        class="comment-info flex-1"
+      >
+        <div
+          class="content-container bg-gray-200 rounded-lg m-2 p-2"
+        >
+          <div
+            class="comment-name font-bold text-lg"
+          >
+            User Two
+          </div>
+          <div
+            class="comment-message"
+          >
+            This is a comment with a parent and with replies
+          </div>
+        </div>
+        <button
+          class="show-button bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 m-1 rounded"
+        >
+          Show Replies...
+        </button>
+      </div>
+    </div>
+    <div
+      class="comment-container border border-2 flex flex-row p-2 m-2 bg-gray-300 rounded-2xl"
+    >
+      <div
+        class="comment-picture"
+      >
+        <img
+          class="comment-profile-image mr-4 rounded-full max-w-50 max-h-50"
+          src="https://example.com/user4.jpg"
+        />
+      </div>
+      <div
+        class="comment-info flex-1"
+      >
+        <div
+          class="content-container bg-gray-200 rounded-lg m-2 p-2"
+        >
+          <div
+            class="comment-name font-bold text-lg"
+          >
+            User Four
+          </div>
+          <div
+            class="comment-message"
+          >
+            This is a comment with multiple reactions
+          </div>
+        </div>
+        <div
+          class="comment-reactions"
+        >
+          <div
+            class="comment-reactions flex flex-row"
+          >
+            <div
+              class="reaction text-white  p-1 bg-gray-500 m-1 rounded-full w-auto min-w-1 h-8 flex items-center justify-center"
+            >
+              👍
+            </div>
+            <div
+              class="reaction text-white  p-1 bg-gray-500 m-1 rounded-full w-auto min-w-1 h-8 flex items-center justify-center"
+            >
+              ❤️
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="comment-container border border-2 flex flex-row p-2 m-2 bg-gray-300 rounded-2xl"
+    >
+      <div
+        class="comment-picture"
+      >
+        <img
+          class="comment-profile-image mr-4 rounded-full max-w-50 max-h-50"
+          src="https://example.com/user5.jpg"
+        />
+      </div>
+      <div
+        class="comment-info flex-1"
+      >
+        <div
+          class="content-container bg-gray-200 rounded-lg m-2 p-2"
+        >
+          <div
+            class="comment-name font-bold text-lg"
+          >
+            User Five
+          </div>
+          <div
+            class="comment-message"
+          />
+          <div
+            class="comment-attachment"
+          >
+            <img
+              class="attachment-photo p-2"
+              src="https://example.com/attachment.jpg"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="comment-container border border-2 flex flex-row p-2 m-2 bg-gray-300 rounded-2xl"
+    >
+      <div
+        class="comment-picture"
+      >
+        <img
+          class="comment-profile-image mr-4 rounded-full max-w-50 max-h-50"
+          src="https://example.com/user6.jpg"
+        />
+      </div>
+      <div
+        class="comment-info flex-1"
+      >
+        <div
+          class="content-container bg-gray-200 rounded-lg m-2 p-2"
+        >
+          <div
+            class="comment-name font-bold text-lg"
+          >
+            User Six
+          </div>
+          <div
+            class="comment-message"
+          >
+            This is a comment with only a message
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
