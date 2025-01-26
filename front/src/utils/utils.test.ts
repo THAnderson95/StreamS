@@ -1,4 +1,4 @@
-import { getReactionSymbol } from "../utils";
+import { getReactionSymbol } from "./utils";
 
 describe("Render the correct Reaction Symbol", () => {
   it("Should Render LIKE", () => {

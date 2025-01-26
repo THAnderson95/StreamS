@@ -14,6 +14,11 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
+      "/platform/profilepic": {
+        target: "https://platform-lookaside.fbsbx.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/platform\/profilepic/, ""),
+      },
     },
   },
   resolve: {

@@ -40,9 +40,21 @@ VITE_FB_API_ACCESS_TOKEN=<your-api-access-token>
 
 Replacing `<your-api-access-token>` with your actual token.
 
+As well as this, this solutio was built within VS Code, so attached is a [launch configuration file](./.vscode/launch.json) set-up to run and debug the solution in FireFox.
+
 ## Running the solution
 
-To start the front-end, run the following:
+To start the front-end, you have 2 options:
+
+### Option 1: Running the launch configuration file in VS Code
+
+1. Open Visual Studio Code
+2. Navigate to the `Run and Debug` tab
+3. Run `Vite + Firefox`, or `Start Vite Server`
+
+### Option 2: Running from the command line
+
+1. Run the following:
 
 ```sh
 npm run dev
