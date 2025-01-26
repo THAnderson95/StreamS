@@ -12,7 +12,7 @@ interface CommentData {
   attachment?: Attachment;
   id: string;
   like_count: number;
-  parent: Parent;
+  parent?: Parent;
 }
 
 interface Parent {
@@ -55,14 +55,14 @@ interface Attachment {
 
 interface Reactions {
   data: Array<Reaction>;
-  paging: Paging;
+  paging?: Paging;
 }
 
 interface Reaction {
   id: string;
   name: string;
   type: string;
-  paging: Paging;
+  paging?: Paging;
 }
 
 interface Paging {

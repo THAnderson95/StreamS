@@ -4,7 +4,7 @@ import { APIDataCommentResponse } from "@/types/commentApi";
 import { CommentDataWithReplies } from "@/types/extendedTypes";
 import { FB_API_ENDPOINT_COMMENTS } from "@/constants/";
 
-import { addRepliesToComments } from "@/utils/Transformers";
+import { addRepliesToComments } from "@/utils/transformers";
 
 const getCommentsEndpoint = (videoId: string): string =>
   FB_API_ENDPOINT_COMMENTS.replace("{0}", videoId);
