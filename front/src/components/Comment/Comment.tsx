@@ -32,7 +32,7 @@ export default function Comment({ data }: CommentProps) {
       return (
         <img
           src={attachment.media.image.src}
-          className="attachment-sticker p-2 w-1/4"
+          className="attachment-sticker p-2 w-20 h-20"
         />
       );
     }
@@ -41,7 +41,7 @@ export default function Comment({ data }: CommentProps) {
       return (
         <img
           src={attachment.media.image.src}
-          className="attachment-photo p-2"
+          className="attachment-photo p-2 w-full h-auto max-w-sm"
         />
       );
     }
@@ -73,7 +73,7 @@ export default function Comment({ data }: CommentProps) {
       <div className="comment-picture">
         <img
           src={data.from.picture.data.url}
-          className="comment-profile-image mr-4 rounded-full max-w-[50px] max-h-[50px]"
+          className="comment-profile-image mr-2 rounded-full max-w-[50px] max-h-[50px] mt-3"
           alt={data.from.name}
         ></img>
       </div>

@@ -32,7 +32,7 @@ function App() {
     </div>
   );
 
-  const handleFilterInputChange = (
+  const handleSearchInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setSearchId(event.target.value);
@@ -44,19 +44,19 @@ function App() {
         type="text"
         placeholder="Video ID"
         value={searchId}
-        onChange={handleFilterInputChange}
+        onChange={handleSearchInputChange}
         className="filter-input border rounded ml-2"
       />
       <button
         className="sort-button bg-blue-500 hover:bg-blue-700 text-white font-bold px-2 py-2 rounded-xl m-2 "
-        onClick={searchCommentsButtonHandler}
+        onClick={handleCommentButtonSubmit}
       >
         Get Video Comments
       </button>
     </div>
   );
 
-  const searchCommentsButtonHandler = async () => {
+  const handleCommentButtonSubmit = async () => {
     setLoading(true);
     setComments([]);
     setApiError("");
@@ -72,23 +72,10 @@ function App() {
       .finally(() => setLoading(false));
   };
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   FetchVideoCommentsData(VIDEO_ID)
-  //     .then((data) => {
-  //       setComments(data);
-  //     })
-  //     .catch((error: Error) => {
-  //       console.error("Error:", error);
-  //       setApiError(error.toString());
-  //     })
-  //     .finally(() => setLoading(false));
-  // }, []);
-
   return (
     <div className="app">
       {renderHeader()}
-      <div className="content-container mx-auto w-1/2">
+      <div className="content-container mx-auto w-full lg:w-1/2">
         {renderSearchInfo()}
         {loading && renderLoading()}
         {apiError && !loading && renderApiError()}

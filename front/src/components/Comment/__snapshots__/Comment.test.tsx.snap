@@ -9,7 +9,8 @@ exports[`renders correctly and matches snapshot 1`] = `
       class="comment-picture"
     >
       <img
-        class="comment-profile-image mr-4 rounded-full max-w-50 max-h-50"
+        alt="User One"
+        class="comment-profile-image mr-4 rounded-full max-w-[50px] max-h-[50px]"
         src="https://example.com/user1.jpg"
       />
     </div>
