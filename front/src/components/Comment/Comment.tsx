@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { COMMENT_TYPES } from "@/constants";
+import { ATTACHMENT_TYPES } from "@/constants";
 import { Attachment } from "@/types/commentApi";
 import { CommentDataWithReplies } from "@/types/extendedTypes";
 
@@ -15,7 +15,7 @@ export default function Comment({ data }: CommentProps) {
       return null;
     }
 
-    if (attachment.type === COMMENT_TYPES.ANIMATED_IMAGE_VIDEO) {
+    if (attachment.type === ATTACHMENT_TYPES.ANIMATED_IMAGE_VIDEO) {
       return (
         <video
           src={attachment.media.source}
@@ -27,7 +27,7 @@ export default function Comment({ data }: CommentProps) {
       );
     }
 
-    if (attachment.type === COMMENT_TYPES.STICKER) {
+    if (attachment.type === ATTACHMENT_TYPES.STICKER) {
       return (
         <img
           src={attachment.media.image.src}
@@ -36,7 +36,7 @@ export default function Comment({ data }: CommentProps) {
       );
     }
 
-    if (attachment.type === COMMENT_TYPES.PHOTO) {
+    if (attachment.type === ATTACHMENT_TYPES.PHOTO) {
       return (
         <img
           src={attachment.media.image.src}

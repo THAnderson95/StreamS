@@ -1,4 +1,4 @@
-import { COMMENT_TYPES } from "@/constants";
+import { ATTACHMENT_TYPES } from "@/constants";
 
 export interface APIDataCommentResponse {
   data: Array<CommentData>;
@@ -49,7 +49,7 @@ interface Attachment {
     };
     source?: string;
   };
-  type: COMMENT_TYPES;
+  type: ATTACHMENT_TYPES;
   url: string;
 }
 
