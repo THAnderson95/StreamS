@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { ATTACHMENT_TYPES } from "@/constants";
-import { Attachment } from "@/types/commentApi";
+import { ATTACHMENT_TYPES, REACTION_TYPE_SYMBOLS } from "@/constants";
+import { Attachment, Reaction } from "@/types/commentApi";
 import { CommentDataWithReplies } from "@/types/extendedTypes";
+import { getReactionSymbol } from "@/utils/utils";
 
 interface CommentProps {
   data: CommentDataWithReplies;
@@ -52,6 +53,16 @@ export default function Comment({ data }: CommentProps) {
     );
   };
 
+  const renderReactions = (reactions: Array<Reaction>) => {
+    return (
+      <div className="comment-reactions">
+        {reactions.map((reaction) => (
+          <div>{getReactionSymbol(reaction.type)}</div>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <div className="comment-container border border-2 flex flex-row p-2 m-2 bg-gray-300 rounded-2xl">
       <div className="comment-picture">
@@ -67,6 +78,11 @@ export default function Comment({ data }: CommentProps) {
         {data.attachment && (
           <div className="comment-attachment">
             {renderAttachment(data.attachment)}
+          </div>
+        )}
+        {data.reactions && (
+          <div className="comment-reactions">
+            {renderReactions(data.reactions.data)}
           </div>
         )}
         {data.replies && data.replies.length > 0 && (
