@@ -16,8 +16,8 @@ Click [here](./front/README.md) for the front-end `README`
 - [x] Display Profile Picture for each comment
 - [x] Display reply threads for comments
 - [x] Display posts with pictures / stickers / gifs
-- [ ] Display post reactions
-- [ ] Make it look nice
+- [x] Display post reactions
+- [x] Make it look nice
 - [ ] Add Mobile Layout
 - [ ] Add JEST Unit test & Snapshot tests
 
