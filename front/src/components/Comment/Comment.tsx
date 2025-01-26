@@ -57,7 +57,10 @@ export default function Comment({ data }: CommentProps) {
     return (
       <div className="comment-reactions flex flex-row">
         {reactions.map((reaction) => (
-          <div key={reaction.name} className="reaction text-white  p-1 bg-gray-500 m-1 rounded-full w-auto min-w-1 h-8 flex items-center justify-center">
+          <div
+            key={reaction.name}
+            className="reaction text-white  p-1 bg-gray-500 m-1 rounded-full w-auto min-w-1 h-8 flex items-center justify-center"
+          >
             {getReactionSymbol(reaction.type)}
           </div>
         ))}

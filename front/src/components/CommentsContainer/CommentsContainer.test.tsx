@@ -6,12 +6,9 @@ import CommentsContainer from "./CommentsContainer";
 import { generateCommentData } from "@/utils/testUtils";
 import { CommentDataWithReplies } from "@/types/extendedTypes";
 
-
 it("renders correctly and matches snapshot", async () => {
   const commentData: Array<CommentDataWithReplies> = generateCommentData();
-  const { asFragment } = render(
-    <CommentsContainer data={commentData}/>
-  );
+  const { asFragment } = render(<CommentsContainer data={commentData} />);
 
   /* eslint-disable testing-library/no-unnecessary-act */
   await act(async () => {});

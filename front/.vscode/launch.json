@@ -1,36 +1,35 @@
 {
-    "version": "0.2.0",
-    "configurations": [
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Start Vite Server",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Debug in Firefox",
+      "type": "firefox",
+      "request": "launch",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/src",
+      "pathMappings": [
         {
-            "name": "Start Vite Server",
-            "type": "node-terminal",
-            "request": "launch",
-            "command": "npm run dev",
-            "cwd": "${workspaceFolder}"
+          "url": "http://localhost:5173/src",
+          "path": "${workspaceFolder}/src"
         },
         {
-            "name": "Debug in Firefox",
-            "type": "firefox",
-            "request": "launch",
-            "url": "http://localhost:5173",
-            "webRoot": "${workspaceFolder}/src",
-            "pathMappings": [
-                {
-                    "url": "http://localhost:5173/src",
-                    "path": "${workspaceFolder}/src"
-                },
-                {
-                    "url": "webpack:///",
-                    "path": "${workspaceFolder}"
-                }
-            ]
+          "url": "webpack:///",
+          "path": "${workspaceFolder}"
         }
-    ],
-    "compounds": [
-      {
-        "name": "Vite + Firefox Debug",
-        "configurations": ["Start Vite Server", "Debug in Firefox"]
-      }
-    ]
-  }
-  
+      ]
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Vite + Firefox Debug",
+      "configurations": ["Start Vite Server", "Debug in Firefox"]
+    }
+  ]
+}
