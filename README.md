@@ -1,4 +1,17 @@
+# Facebook Comment Information Displaying Technical Test
+
+This is a simple front-end built using [Vite](https://vitejs.dev/), [React](https://reactjs.org/), and [tailwindcss](https://tailwindcss.com/).
+
+The aim of this solution is to fetch a list of comments from [Facebook's Graph API](https://developers.facebook.com/docs/graph-api/reference/live-video/comments/#Reading) for a video, and display them on the page.
+
+There is a searchbox for fetching a specific video's comments (originally populated with the video ID defined in the test documentation.)
+
+## How to Setup
+
+Click [here](./front/README.md) for the front-end `README`
+
 ### Development Checklist
+
 - [x] Display Post's Comments
 - [x] Display Profile Picture for each comment
 - [x] Display reply threads for comments
