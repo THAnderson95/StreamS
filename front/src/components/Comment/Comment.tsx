@@ -70,7 +70,8 @@ export default function Comment({ data }: CommentProps) {
       <div className="comment-picture">
         <img
           src={data.from.picture.data.url}
-          className="comment-profile-image mr-4 rounded-full max-w-50 max-h-50"
+          className="comment-profile-image mr-4 rounded-full max-w-[50px] max-h-[50px]"
+          alt={data.from.name}
         ></img>
       </div>
       <div className="comment-info flex-1">
