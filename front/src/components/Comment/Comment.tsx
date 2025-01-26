@@ -55,9 +55,11 @@ export default function Comment({ data }: CommentProps) {
 
   const renderReactions = (reactions: Array<Reaction>) => {
     return (
-      <div className="comment-reactions">
+      <div className="comment-reactions flex flex-row">
         {reactions.map((reaction) => (
-          <div>{getReactionSymbol(reaction.type)}</div>
+          <div className="reaction text-white  p-1 bg-gray-500 m-1 rounded-full w-auto min-w-1 h-8 flex items-center justify-center">
+            {getReactionSymbol(reaction.type)}
+          </div>
         ))}
       </div>
     );
@@ -72,14 +74,17 @@ export default function Comment({ data }: CommentProps) {
         ></img>
       </div>
       <div className="comment-info flex-1">
-        <div className="comment-name text-2xl">{data.from.name}</div>
-        <div className="comment-message italic">{data.message}</div>
+        <div className="content-container bg-gray-200 rounded-lg m-2 p-2">
+          <div className="comment-name font-bold text-lg">{data.from.name}</div>
+          <div className="comment-message">{data.message}</div>
 
-        {data.attachment && (
-          <div className="comment-attachment">
-            {renderAttachment(data.attachment)}
-          </div>
-        )}
+          {data.attachment && (
+            <div className="comment-attachment">
+              {renderAttachment(data.attachment)}
+            </div>
+          )}
+        </div>
+
         {data.reactions && (
           <div className="comment-reactions">
             {renderReactions(data.reactions.data)}
