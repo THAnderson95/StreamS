@@ -23,15 +23,20 @@ jobs:
 
       # Dependency Install
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd front
+          npm install
 
       # Build
       - name: Build the app
-        run: npm run build
+        run: |
+          cd front
+          npm run build
 
       # Zip Archive
       - name: Create release artifact (zip)
         run: |
+          cd front
           zip -r release.zip dist/
         shell: bash
 
@@ -53,6 +58,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: release.zip
+          asset_path: front/release.zip
           asset_name: release.zip
           asset_content_type: application/zip
