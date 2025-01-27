@@ -9,36 +9,29 @@ jobs:
   create-release:
     runs-on: ubuntu-latest
 
-    steps:
-      # Checkout the code
-      - name: Checkout code
-        uses: actions/checkout@v3
+steps:
+  # Checkout the code
+  - name: Checkout code
+    uses: actions/checkout@v3
 
-      # Setup Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: "npm"
+  # Setup Node.js
+  - name: Set up Node.js
+    uses: actions/setup-node@v3
+    with:
+      node-version: 18
+      cache: "npm"
 
-      # Dependency Install
-      - name: Install dependencies
-        working-directory: ./front
-        run: |
-          npm install
+  # Dependency Install
+  - name: Install dependencies
+    working-directory: ./front
+    run: |
+      npm install
 
-      # Build
-      - name: Build the app
-        working-directory: ./front
-        run: |
-          npm run build
-
-      # Zip Archive
-      - name: Create release artifact (zip)
-        working-directory: ./front
-        run: |
-          zip -r release.zip dist/
-        shell: bash
+  # Build
+  - name: Build the app
+    working-directory: ./front
+    run: |
+      npm run build
 
       # Create release on GitHub
       - name: Create GitHub Release
